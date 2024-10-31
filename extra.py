@@ -1,58 +1,46 @@
-MAX_LINES = 3
-MAX_BET = 100
-MIN_BET = 1
+#My first GUI
+import tkinter as tk
 
-def deposit():
-    while True:
-        amount = input('What would you like to deposit? $')
-        if amount.isdigit():
-            amount = int(amount)
-            if amount > 0:
-                break
-            else:
-                print('Amount must be greater than 0.')
-        else:
-            print('Please enter a number')
-    return amount
+root = tk.Tk()
 
-def get_number_of_lines():
-    while True:
-        lines = input('Enter the number of lines to bet on (1-' + str(MAX_LINES) + ')? ')
-        if lines.isdigit():
-            lines = int(lines)
-            if 1 <= lines <= MAX_LINES:
-                break
-            else:
-                print('Enter a valid number of lines')
-        else:
-            print('Please enter a number')
-    return lines
+root.geometry("500x500")
+root.title("My first GUI")
 
-def get_bet():
-    while True:
-        amount = input('What would you like to bet? $')
-        if amount.isdigit():
-            amount = int(amount)
-            if MIN_BET <= amount <= MAX_BET:
-                break
-            else:
-                print(f"Amount must be between ${MIN_BET} - ${MAX_BET}.")
-        else:
-            print('Please enter a number')
-    return amount
+label = tk.Label(root, text="Hello World", font=('Arial', 18))
+label.pack(padx=20, pady=20)
 
-def main():
-    balance = deposit()
-    lines = get_number_of_lines()
-    while True:
-        bet = get_bet()
-        total_bet = bet * lines
+textbox = tk.Text(root, height=3, font=('Arial', 16))
+textbox.pack(padx=10)
 
-        if total_bet > balance:
-            print(f'You do not have enough to bet that amount, your current balance is: ${balance}.')
-        else:
-            break
+buttonframe = tk.Frame(root)
+buttonframe.columnconfigure(0, weight=1)
+buttonframe.columnconfigure(1, weight=1)
+buttonframe.columnconfigure(2, weight=1)
 
-    print(f'You are betting ${bet} on {lines} lines. Total bet is equal to: ${total_bet}')
+btn1 = tk.Button(buttonframe, text="1", font=('Arial', 16))
+btn1.grid(row=0, column=0, sticky=tk.W + tk.E)
 
-main()
+btn2 = tk.Button(buttonframe, text="2", font=('Arial', 16))
+btn2.grid(row=0, column=1, sticky=tk.W + tk.E)
+
+btn3 = tk.Button(buttonframe, text="3", font=('Arial', 16))
+btn3.grid(row=0, column=2, sticky=tk.W + tk.E)
+
+btn4 = tk.Button(buttonframe, text="4", font=('Arial', 16))
+btn4.grid(row=1, column=0, sticky=tk.W + tk.E)
+
+btn5 = tk.Button(buttonframe, text="5", font=('Arial', 16))
+btn5.grid(row=1, column=1, sticky=tk.W + tk.E)
+
+btn6 = tk.Button(buttonframe, text="6", font=('Arial', 16))
+btn6.grid(row=1, column=2, sticky=tk.W + tk.E)
+
+buttonframe.pack(fill='x')
+
+anotherbtn = tk.Button(root, text="TEST")
+anotherbtn.place(x=200, y=200, height=100, width=100)
+
+# button = tk.Button(root, text="Cliick Me!", font=('Arial', 16))
+# button.pack(padx=10, pady=10)
+
+root.mainloop()
