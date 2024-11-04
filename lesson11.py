@@ -54,3 +54,10 @@ print_todays_date()
 add(1, 2)
 add(7, 8, 9)
 add(123456, 78920, 1112131415, 23456789, 12, 23, 45, 6789)
+
+#data -- name, phone, gender
+#Account -- deposit, withdrawal, check balance, service charge
+#Object oriented programming comes in handy
+#----------------------------------------
+#matatu system --> number plate, driver, conductor, route
+#We create a class matatu
